@@ -33,6 +33,7 @@ public class wage_probllem {
     System.out.println("Employee wage is "+totalWage);
     System.out.println("Total working hours is "+totalEmpHours);
     System.out.println("Total working days is "+totalEmpDays);
+
     
 }
  }
