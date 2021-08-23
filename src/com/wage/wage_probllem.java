@@ -10,19 +10,24 @@ public class wage_probllem {
     int ratePerHour =20;
     int empHour=0;
     int empWage=0;
+    int noWorkingDay=20;
+    int totalWage=0;
+    for(int day=0;day<noWorkingDay;day++)
+    {
     int empCheck=(int) (Math.floor(Math.random()*10)%3);
     switch (empCheck) {
     case  IS_FULL_TIME: empHour=16;break;
     case IS_PART_TIME: empHour=8;break;
     default: empHour=0;
     }
+    
     empWage=empHour*ratePerHour ;
-    System.out.println("Employee wage is "+empWage);
+    totalWage+=empWage;
+    }		
+    System.out.println("Employee wage is "+totalWage);
     
-    	
-    	}
+}
+ }
 
-    
-
-	}
+ 
 
