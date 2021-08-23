@@ -12,22 +12,28 @@ public class wage_probllem {
     int empWage=0;
     int noWorkingDay=20;
     int totalWage=0;
-    while(total_emp_hrs<max_hrs &&total_emp_days<max_days)
+    int totalEmpHours=0;
+    int maxHours=100;
+    int maxDays=20;
+    int totalEmpDays=0;
+   
+    while(totalEmpHours<maxHours &&totalEmpDays<maxDays)
     {
-    	total_emp_days+=1;
+    	totalEmpDays+=1;
     int empCheck=(int) (Math.floor(Math.random()*10)%3);
     switch (empCheck) {
     case  IS_FULL_TIME: empHour=16;break;
     case IS_PART_TIME: empHour=8;break;
     default: empHour=0;
     }
-    total_emp_hrs+=emp_hrs;
-    empWage=empHour*ratePerHour;
+    totalEmpHours+=empHour;
+    empWage=empHour*ratePerHour ;
     totalWage+=empWage;
     }		
-    System.out.println("Employee wage is "+total_wage);
-    System.out.println("Total working hours is "+total_emp_hrs);
-    System.out.println("Total working days is "+total_emp_days);
+    System.out.println("Employee wage is "+totalWage);
+    System.out.println("Total working hours is "+totalEmpHours);
+    System.out.println("Total working days is "+totalEmpDays);
+
     
 }
  }
