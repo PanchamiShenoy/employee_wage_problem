@@ -3,17 +3,14 @@ package com.wage;
 public class EmployeeWageBuilder {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	public static final int RATE_PER_HOUR = 20;
-	public static final int MAX_HOURS = 100;
-	public static final int MAX_DAYS = 20;
 
-	public static void computeWage() {
+	public static void computeWage(String companyName,int ratePerHour,int maxHours,int maxDays) {
 		int empHour = 0;
 		int empWage = 0;
 		int totalWage = 0;
 		int totalEmpHours = 0;
 		int totalEmpDays = 0;
-		while (totalEmpHours < MAX_HOURS && totalEmpDays < MAX_DAYS) {
+		while (totalEmpHours < maxHours && totalEmpDays < maxDays) {
 			totalEmpDays += 1;
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
 			switch (empCheck) {
@@ -27,15 +24,17 @@ public class EmployeeWageBuilder {
 				empHour = 0;
 			}
 			totalEmpHours += empHour;
-			empWage = empHour * RATE_PER_HOUR;
+			empWage = empHour * ratePerHour;
 			totalWage += empWage;
 		}
+		System.out.println("\ncompany name is"+companyName);
 		System.out.println("Employee wage is " + totalWage);
 		System.out.println("Total working hours is " + totalEmpHours);
 		System.out.println("Total working days is " + totalEmpDays);
 	}
 
 	public static void main(String args[]) {
-		computeWage();
+		computeWage("YML",30,160,20);
+		computeWage("BridgeLabz",30,150,15);
 	}
 }
