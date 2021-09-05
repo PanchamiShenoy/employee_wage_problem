@@ -1,6 +1,6 @@
 package com.wage;
 
-public class EmployeeWageBuilder {
+public class EmployeeWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 
@@ -11,18 +11,30 @@ public class EmployeeWageBuilder {
 		companyEmpWageArr = new CompanyEmpWage[5];
 	}
 
+	/**
+	 * method to add company detail to companyEmpWageArr
+	 */
 	public void addCompanyEmpWage(String company, int ratePerHour, int maxHours, int maxDays) {
 		companyEmpWageArr[numOfCompany] = new CompanyEmpWage(company, ratePerHour, maxHours, maxDays);
 		numOfCompany++;
 	}
 
-	private void computeEmpWage() {
+	/**
+	 * method to set total employee wage for each company
+	 */
+	public void computeEmpWage() {
 		for (int i = 0; i < numOfCompany; i++) {
 			companyEmpWageArr[i].setTotalEmpWage(this.computeWage(companyEmpWageArr[i]));
 			System.out.println(companyEmpWageArr[i]);
 		}
 	}
 
+	/**
+	 * method to compute total employee wage for each company
+	 * 
+	 * @param companyEmpWage
+	 * @return totalWage
+	 */
 	public int computeWage(CompanyEmpWage companyEmpWage) {
 		int empHour = 0;
 		int empWage = 0;
