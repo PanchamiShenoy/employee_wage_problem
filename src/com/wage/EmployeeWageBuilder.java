@@ -44,7 +44,7 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 	 */
 	public int computeWage(CompanyEmpWage companyEmpWage) {
 		int empHour = 0;
-		int empWage = 0;
+		int dailyWage = 0;
 		int totalWage = 0;
 		int totalEmpHours = 0;
 		int totalEmpDays = 0;
@@ -62,8 +62,9 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 				empHour = 0;
 			}
 			totalEmpHours += empHour;
-			empWage = empHour * companyEmpWage.ratePerHour;
-			totalWage += empWage;
+			dailyWage = empHour * companyEmpWage.ratePerHour;
+			System.out.println("\ndaily wage is "+dailyWage);
+			totalWage += dailyWage;
 		}
 		System.out.println("\ncompany name is" + companyEmpWage.company);
 		System.out.println("Employee wage is " + totalWage);
