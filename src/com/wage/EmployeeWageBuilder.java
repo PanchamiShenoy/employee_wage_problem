@@ -81,4 +81,10 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 		empWageBuilder.addCompanyEmpWage("bridgelabz", 20, 100, 20);
 		empWageBuilder.computeEmpWage();
 	}
+
+	@Override
+	public int getTotalWage(String company) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
