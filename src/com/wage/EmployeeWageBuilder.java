@@ -35,7 +35,11 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 			System.out.println(companyEmpWage);
 		}
 	}
-
+	@Override
+	public  int getTotalWage(String company)
+	{
+		return companyToEmpWageMap.get(company).totalWage;
+	}
 	/**
 	 * method to compute total employee wage for each company
 	 * 
@@ -80,5 +84,6 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 		empWageBuilder.addCompanyEmpWage("YML", 30, 140, 20);
 		empWageBuilder.addCompanyEmpWage("bridgelabz", 20, 100, 20);
 		empWageBuilder.computeEmpWage();
+		System.out.println("Total wage of  YML: "+ empWageBuilder.getTotalWage("YML"));
 	}
 }
