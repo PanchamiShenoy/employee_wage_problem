@@ -1,10 +1,13 @@
 package com.wage;
 
+import java.util.List;
+
 public class CompanyEmpWage {
 	public final String company;
 	public final int ratePerHour;
 	public final int maxDays;
 	public final int maxHours;
+	public List<Integer> dailyWages;
 	public int totalWage;
 
 	/**
@@ -29,6 +32,10 @@ public class CompanyEmpWage {
 	 */
 	public void setTotalEmpWage(int totalWage) {
 		this.totalWage = totalWage;
+	}
+
+	public void setDailyWage(List<Integer> dailyWages) {
+		this.dailyWages = dailyWages;
 	}
 
 	@Override
