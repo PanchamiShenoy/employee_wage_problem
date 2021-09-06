@@ -1,7 +1,9 @@
 package com.wage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class EmployeeWageBuilder implements IComputeEmpWage {
@@ -33,6 +35,7 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 			CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
 			companyEmpWage.setTotalEmpWage(this.computeWage(companyEmpWage));
 			System.out.println(companyEmpWage);
+			System.out.println(companyEmpWage.dailyWages);
 		}
 	}
 	@Override
@@ -52,6 +55,7 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 		int totalWage = 0;
 		int totalEmpHours = 0;
 		int totalEmpDays = 0;
+		List<Integer> dailyWages = new ArrayList<>();
 		while (totalEmpHours < companyEmpWage.maxHours && totalEmpDays < companyEmpWage.maxDays) {
 			totalEmpDays += 1;
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
@@ -67,9 +71,10 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 			}
 			totalEmpHours += empHour;
 			dailyWage = empHour * companyEmpWage.ratePerHour;
-			System.out.println("\ndaily wage is "+dailyWage);
+			dailyWages.add(dailyWage);
 			totalWage += dailyWage;
 		}
+		companyEmpWage.setDailyWage(dailyWages);
 		System.out.println("\ncompany name is" + companyEmpWage.company);
 		System.out.println("Employee wage is " + totalWage);
 		System.out.println("Total working hours is " + totalEmpHours);
@@ -86,4 +91,5 @@ public class EmployeeWageBuilder implements IComputeEmpWage {
 		empWageBuilder.computeEmpWage();
 		System.out.println("Total wage of  YML: "+ empWageBuilder.getTotalWage("YML"));
 	}
+
 }
